@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090B">
+  <meta name="description" content="High-retention video editing and editorial visual design for creators, agencies, and digital brands.">
+  <title>Clarice — Video Editing & Editorial Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #09090B;
+      --surface: #121215;
+      --border: #27272A;
+      --accent: #6366F1;
+      --accent-hover: #4F46E5;
+      --text-primary: #FAFAFA;
+      --text-secondary: #A1A1AA;
+      --content-width: 1120px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text-primary);
+      font-family: "DM Sans", sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .shell { width: min(var(--content-width), calc(100% - 48px)); margin-inline: auto; }
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+      background: color-mix(in srgb, var(--background) 90%, transparent);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .wordmark { font-family: "Manrope", sans-serif; font-size: 19px; font-weight: 800; letter-spacing: 0; }
+    .wordmark span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 32px; color: var(--text-secondary); font-size: 13px; }
+    .nav-links a, .text-link { transition: color 160ms ease; }
+    .nav-links a:hover, .text-link:hover { color: var(--text-primary); }
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      background: var(--accent);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+    .button:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .button-secondary { border-color: var(--border); background: transparent; }
+    .button-secondary:hover { border-color: var(--text-secondary); background: var(--surface); }
+    .header-cta { min-height: 40px; padding-inline: 15px; }
+    .hero { padding: 100px 0 78px; }
+    .hero-copy { max-width: 770px; animation: rise-in 600ms ease both; }
+    .eyebrow {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-secondary);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      line-height: 1.4;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: "Manrope", sans-serif; letter-spacing: 0; }
+    h1 { max-width: 760px; margin: 22px 0 18px; font-size: clamp(42px, 6vw, 68px); font-weight: 600; line-height: 1.08; }
+    .hero-description { max-width: 620px; margin-bottom: 27px; color: var(--text-secondary); font-size: 16px; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; }
+    .section { padding: 66px 0 82px; border-top: 1px solid var(--border); }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .section-heading h2 { margin: 0 0 6px; font-size: 28px; font-weight: 600; line-height: 1.25; }
+    .section-heading p { margin: 0; color: var(--text-secondary); font-size: 14px; }
+    .section-kicker { margin-bottom: 9px; color: var(--text-secondary); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .project-card, .package-card { min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); }
+    .project-card { animation: rise-in 650ms ease both; }
+    .project-card:nth-child(2) { animation-delay: 70ms; }
+    .project-card:nth-child(3) { animation-delay: 140ms; }
+    .project-card:nth-child(4) { animation-delay: 210ms; }
+    .preview { position: relative; min-height: 230px; overflow: hidden; border-bottom: 1px solid var(--border); background: var(--background); }
+    .preview-video { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; padding: 16px; }
+    .video-panel { position: relative; min-height: 198px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 14px; border: 1px solid var(--border); background: linear-gradient(145deg, var(--border) 0%, var(--surface) 48%, var(--background) 100%); }
+    .video-panel::after { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(9, 9, 11, .8), transparent 54%); content: ""; }
+    .video-label, .video-caption { position: relative; z-index: 1; }
+    .video-label { align-self: flex-start; padding: 3px 7px; border: 1px solid var(--text-secondary); color: var(--text-secondary); font-size: 9px; letter-spacing: .5px; text-transform: uppercase; }
+    .video-caption { max-width: 150px; font-family: "Manrope", sans-serif; font-size: 17px; font-weight: 700; line-height: 1.2; }
+    .frame-shape { position: absolute; top: 21%; left: 50%; width: 74px; height: 74px; border: 1px solid var(--text-secondary); border-radius: 50%; transform: translateX(-50%); }
+    .frame-shape::before, .frame-shape::after { position: absolute; background: var(--border); content: ""; }
+    .frame-shape::before { top: 50%; left: -28px; width: 128px; height: 1px; }
+    .frame-shape::after { top: -28px; left: 50%; width: 1px; height: 128px; }
+    .preview-editorial { display: grid; grid-template-columns: .8fr 1.2fr; gap: 12px; padding: 16px; background: var(--background); }
+    .editorial-page { min-height: 198px; padding: 15px; border: 1px solid var(--border); background: var(--surface); }
+    .editorial-page.featured { display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(145deg, var(--border), var(--surface) 70%); }
+    .page-meta { color: var(--text-secondary); font-size: 8px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; }
+    .page-title { max-width: 180px; margin: 10px 0; font-family: "Manrope", sans-serif; font-size: 17px; font-weight: 700; line-height: 1.2; }
+    .page-lines { display: grid; gap: 7px; }
+    .page-lines span { height: 3px; background: var(--text-secondary); }
+    .page-lines span:nth-child(2) { width: 84%; }
+    .page-lines span:nth-child(3) { width: 66%; }
+    .page-mark { width: 42px; height: 42px; margin-top: 22px; border: 1px solid var(--text-secondary); border-radius: 50%; }
+    .project-info { padding: 18px 19px 19px; }
+    .project-info h3 { margin: 0 0 11px; font-size: 16px; font-weight: 600; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag { padding: 4px 8px; border: 1px solid var(--border); border-radius: 3px; color: var(--text-secondary); font-size: 10px; line-height: 1.4; }
+    .services { padding-top: 72px; }
+    .package-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .package-card { display: flex; flex-direction: column; padding: 22px; }
+    .package-number { margin-bottom: 22px; color: var(--text-secondary); font-size: 10px; font-weight: 700; letter-spacing: .8px; }
+    .package-card h3 { min-height: 48px; margin: 0 0 11px; font-size: 18px; font-weight: 600; line-height: 1.35; }
+    .package-card p { min-height: 56px; margin: 0 0 23px; color: var(--text-secondary); font-size: 13px; line-height: 1.7; }
+    .package-actions { display: grid; gap: 9px; margin-top: auto; }
+    .package-actions .button { width: 100%; padding-inline: 10px; font-size: 12px; }
+    .package-actions .button-secondary { color: var(--text-primary); }
+    .contact-section { padding: 72px 0 78px; border-top: 1px solid var(--border); }
+    .contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 36px; }
+    .contact-copy { max-width: 570px; }
+    .contact-copy h2 { margin: 0 0 10px; font-size: 34px; font-weight: 600; line-height: 1.2; }
+    .contact-copy p { margin: 0; color: var(--text-secondary); font-size: 15px; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .site-footer { border-top: 1px solid var(--border); }
+    .footer-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--text-secondary); font-size: 11px; }
+    .footer-inner p { margin: 0; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    @keyframes rise-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 760px) {
+      .shell { width: min(var(--content-width), calc(100% - 36px)); }
+      .header-inner { min-height: 66px; }
+      .nav-links { gap: 17px; }
+      .nav-links a:nth-child(2) { display: none; }
+      .hero { padding: 76px 0 58px; }
+      h1 { font-size: clamp(40px, 9vw, 58px); }
+      .section { padding: 56px 0 64px; }
+      .package-grid { grid-template-columns: 1fr; }
+      .package-card h3, .package-card p { min-height: 0; }
+      .package-card { padding: 20px; }
+      .package-number { margin-bottom: 15px; }
+      .contact-inner { align-items: flex-start; flex-direction: column; gap: 23px; }
+    }
+    @media (max-width: 540px) {
+      .shell { width: calc(100% - 32px); }
+      .header-cta { min-height: 38px; padding-inline: 11px; font-size: 12px; }
+      .nav-links { gap: 14px; font-size: 12px; }
+      .nav-links a:nth-child(1) { display: none; }
+      .hero { padding-top: 62px; }
+      h1 { margin-top: 18px; font-size: 41px; }
+      .hero-description { font-size: 14px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .hero-actions .button { width: 100%; }
+      .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .section-heading h2 { font-size: 25px; }
+      .project-grid { grid-template-columns: 1fr; gap: 12px; }
+      .preview { min-height: 200px; }
+      .video-panel, .editorial-page { min-height: 170px; }
+      .contact-copy h2 { font-size: 30px; }
+      .contact-actions { display: grid; width: 100%; grid-template-columns: 1fr; }
+      .contact-actions .button { width: 100%; }
+      .footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding: 17px 0; gap: 5px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="#top" aria-label="Clarice home">clarice<span>.</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#projects">Selected work</a>
+        <a href="#services">Services</a>
+      </nav>
+      <a class="button header-cta" href="#contact">Start a project</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow">VIDEO EDITING &amp; EDITORIAL DESIGN</div>
+        <h1 id="hero-title">High-Retention Video Editing &amp; Editorial Visual Design</h1>
+        <p class="hero-description">Delivering audience-engaging short-form video assets and high-converting digital publication layouts for international creators, agencies, and digital brands.</p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">View Selected Projects</a>
+          <a class="button button-secondary" href="mailto:your-email@domain.com?subject=Project%20Inquiry">Contact Directly</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Selected work</div>
+            <h2 id="projects-title">Editorial precision. Built to perform.</h2>
+          </div>
+          <p>Video and digital products, made for the next step.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="preview preview-video" role="img" aria-label="Abstract short-form video preview">
+              <div class="video-panel"><span class="video-label">Vertical edit</span><span class="frame-shape" aria-hidden="true"></span><span class="video-caption">A stronger first five seconds.</span></div>
+              <div class="video-panel"><span class="video-label">Motion study</span><span class="frame-shape" aria-hidden="true"></span><span class="video-caption">Keep the story moving.</span></div>
+            </div>
+            <div class="project-info">
+              <h3>Short-Form Retention Edits</h3>
+              <div class="tags"><span class="tag">Reels / Shorts</span><span class="tag">Sound Design &amp; Motion</span></div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="preview preview-video" role="img" aria-label="Abstract long-form podcast editing preview">
+              <div class="video-panel"><span class="video-label">Podcast cut</span><span class="frame-shape" aria-hidden="true"></span><span class="video-caption">The point, without the pause.</span></div>
+              <div class="video-panel"><span class="video-label">Subtitles</span><span class="frame-shape" aria-hidden="true"></span><span class="video-caption">Clear pacing. Clean finish.</span></div>
+            </div>
+            <div class="project-info">
+              <h3>Long-Form Repurposing</h3>
+              <div class="tags"><span class="tag">Podcast Cuts</span><span class="tag">Pacing &amp; Subtitles</span></div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="preview preview-editorial" role="img" aria-label="Digital workbook and planner layout preview">
+              <div class="editorial-page featured"><span class="page-meta">Field notes / 01</span><div><div class="page-title">Make room for the work that matters.</div><div class="page-lines"><span></span><span></span><span></span></div></div></div>
+              <div class="editorial-page"><span class="page-meta">Weekly planner</span><div class="page-mark" aria-hidden="true"></div><div class="page-lines"><span></span><span></span><span></span></div></div>
+            </div>
+            <div class="project-info">
+              <h3>Interactive Workbooks &amp; Planners</h3>
+              <div class="tags"><span class="tag">Editorial Design</span><span class="tag">Hyperlinked PDF</span></div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="preview preview-editorial" role="img" aria-label="Digital lead magnet and brand asset layout preview">
+              <div class="editorial-page"><span class="page-meta">Brand guide</span><div class="page-mark" aria-hidden="true"></div><div class="page-lines"><span></span><span></span><span></span></div></div>
+              <div class="editorial-page featured"><span class="page-meta">A practical guide / 2026</span><div><div class="page-title">Ideas worth sharing, designed to travel.</div><div class="page-lines"><span></span><span></span><span></span></div></div></div>
+            </div>
+            <div class="project-info">
+              <h3>Lead Magnets &amp; Brand Assets</h3>
+              <div class="tags"><span class="tag">Digital Products</span><span class="tag">Canva &amp; InDesign</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Ways to work together</div>
+            <h2 id="services-title">Direct Service Packages</h2>
+          </div>
+          <p>Upfront pricing with secure international settlement options.</p>
+        </div>
+        <div class="package-grid">
+          <article class="package-card">
+            <div class="package-number">PACKAGE 01</div>
+            <h3>Short-Form Video Suite</h3>
+            <p>10-15 vertical cuts, edited for clarity, pace, and a 48h turnaround.</p>
+            <div class="package-actions">
+              <a class="button" href="#">Pay 50% Deposit via Stripe</a>
+              <a class="button button-secondary" href="#">Wire Transfer via Payoneer / Wise</a>
+            </div>
+          </article>
+          <article class="package-card">
+            <div class="package-number">PACKAGE 02</div>
+            <h3>Editorial &amp; Digital Product Layout</h3>
+            <p>E-books, workbooks, and interactive PDFs, laid out for a polished reading experience.</p>
+            <div class="package-actions">
+              <a class="button" href="#">Pay 50% Deposit via Stripe</a>
+              <a class="button button-secondary" href="#">Wire Transfer via Payoneer / Wise</a>
+            </div>
+          </article>
+          <article class="package-card">
+            <div class="package-number">PACKAGE 03</div>
+            <h3>Custom Agency Retainer</h3>
+            <p>White-label production and ad creatives, shaped around your team's workflow.</p>
+            <div class="package-actions">
+              <a class="button" href="#">Pay 50% Deposit via Stripe</a>
+              <a class="button button-secondary" href="#">Wire Transfer via Payoneer / Wise</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact-inner">
+        <div class="contact-copy">
+          <div class="section-kicker">Availability</div>
+          <h2 id="contact-title">Start a Project</h2>
+          <p>Currently accepting select freelance bookings and recurring agency retentions.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button" href="mailto:your-email@domain.com?subject=Project%20Inquiry">Email Clarice</a>
+          <a class="button button-secondary" href="https://wa.me/5500000000000?text=Hello,%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <a class="wordmark" href="#top" aria-label="Clarice home">clarice<span>.</span></a>
+      <p>© 2026 Clarice. All rights reserved. Workana and Upwork hire available upon request.</p>
+    </div>
+  </footer>
+</body>
+</html>
